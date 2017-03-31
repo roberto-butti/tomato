@@ -1,1 +1,6 @@
-console.log("Hello World!");
+
+var f=(m)=>{
+	console.log(m)
+}
+
+f("Hello World!");
