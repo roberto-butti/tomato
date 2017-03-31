@@ -1,0 +1,13 @@
+{
+  "name": "tomato",
+  "version": "0.0.1",
+  "description": "Time tracker for Pomodoro Technique. Yes I know there are too much tool like that, but I'm building it to learn VueJS, WebPack, Yarn",
+  "main": "index.js",
+  "repository": "https://github.com/roberto-butti/tomato.git",
+  "author": "Roberto Butti <roberto.butti@h-art.com>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
