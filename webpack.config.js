@@ -10,6 +10,19 @@ module.exports = {
         publicPath: '/dist/',
         filename: '[name].bundle.js',
     },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            include: path.resolve(__dirname, 'src'),
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    plugins: ['transform-runtime']
+                }
+
+            }]
+        }]
+    },
     plugins: [
         new webpack.NamedModulesPlugin()
     ]
