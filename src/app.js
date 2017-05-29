@@ -1,6 +1,13 @@
+if (module.hot)
+  module.hot.accept()
 
-var f=(m)=>{
-	console.log(m)
-}
+import Vue from 'vue'
 
-f("Hello World!");
+Vue.component('timer', require('./components/Timer.vue'));
+
+new Vue({
+    el: "#app",
+    data: {
+        name: "Tomato"
+    }
+});
