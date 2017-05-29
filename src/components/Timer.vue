@@ -18,13 +18,12 @@
             return {
                 timer: this.timer,
                 timerInstance: null,
-                timerPush: null,
                 timerInit: true,
-                saved: []
+                
             };
         },
         mounted() {
-            this.enableNotification();
+            
         },
         computed: {
             timerFormatted: function(){
