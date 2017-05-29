@@ -1,3 +1,5 @@
+// VUE-LOADER: loading module Vue
+const vue = require('vue-loader');
 const path = require('path');
 const webpack = require('webpack');
 module.exports = {
@@ -15,15 +17,34 @@ module.exports = {
             test: /\.js$/,
             include: path.resolve(__dirname, 'src'),
             use: [{
-                loader: 'babel-loader',
+                loader: 'babel-loader'
+            }]
+        }, { // VUE-LOADER: new rule in module section for VUE module
+            test: /\.vue$/,
+            include: path.resolve(__dirname, 'src'),
+            use: [{
+                loader: 'vue-loader',
                 options: {
-                    plugins: ['transform-runtime']
+                    loaders: {
+                        scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
+                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
+                    }
                 }
-
             }]
         }]
+    }, // VUE-LOADER: define and alias for vue loader
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
     },
     plugins: [
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        // VUE-LOADER: define NODE_ENV
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        })
     ]
 };
